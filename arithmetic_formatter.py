@@ -1,7 +1,8 @@
 # FCC First Course Project (Dec 6th, 2024)
 
 def arithmetic_arranger(problems, show_answers=False):
-    if len(problems) > 4:
+    problem_limit = 5
+    if len(problems) > 5:
         return 'Error: Too many problems.'
     answer_str = ""
     
@@ -10,11 +11,11 @@ def arithmetic_arranger(problems, show_answers=False):
         arg1, op, arg2 = problems[idx].split(' ')
         # Check constraints and solve if speciifed 
         if op not in '+-':
-            return 'Error: Operator must be "+" or "-".'
+            return 'Error: Operator must be \'+\' or \'-\'.'
         if not arg1.isdigit() or not arg2.isdigit():
             return 'Error: Numbers must only contain digits.'
         if int(arg1) > 9999 or int(arg2) > 9999:
-            return 'Error: Numbers cannot be more than four digits'
+            return 'Error: Numbers cannot be more than four digits.'
         
         # pad the strings as per the max length
         mx_len = max(len(arg1), len(arg2))
@@ -51,6 +52,6 @@ def arithmetic_arranger(problems, show_answers=False):
     
     return answer_str
     
-solution = arithmetic_arranger(["9999 + 6998", "3801 - 2", "45 + 43", "123 + 49"])
-    
+# solution = arithmetic_arranger(["9999 + 6998", "3801 - 2", "45 + 43", "123 + 49"])
+solution = arithmetic_arranger(["11 + 4", "3801 - 2999", "1 + 2", "123 + 49", "1 - 9380"])
 print(solution)
